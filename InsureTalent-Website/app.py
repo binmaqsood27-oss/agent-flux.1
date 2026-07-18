@@ -1,4 +1,3 @@
-from pathlib import Path
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -7,9 +6,11 @@ st.set_page_config(
     layout="wide"
 )
 
-html_path = Path(__file__).parent / "index.html"
+with open("index.html", "r", encoding="utf-8") as file:
+    html = file.read()
 
-with open(html_path, "r", encoding="utf-8") as f:
-    html = f.read()
-
-components.html(html, height=1200, scrolling=True)
+components.html(
+    html,
+    height=2000,
+    scrolling=True
+)
